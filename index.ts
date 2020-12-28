@@ -19,7 +19,6 @@ export const binding: PropertyDecorator = (Target: any, key) => {
     }
   });
 }
-
 export function bindBy(identifier: any): PropertyDecorator {
   return (Target, key) => {
     Object.defineProperty(Target, key, {
@@ -34,4 +33,8 @@ export function register(instance: any) {
       map.set(identifier, instance);
     }
   }
+}
+
+export function resetBinding() {
+  map.clear();
 }
