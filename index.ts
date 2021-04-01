@@ -18,12 +18,15 @@ export const binding: PropertyDecorator = (Target: any, key) => {
       return map.get(Reflect.getMetadata("design:type", Target, key));
     }
   });
+  return Target;
 }
+
 export function bindBy(identifier: any): PropertyDecorator {
   return (Target, key) => {
     Object.defineProperty(Target, key, {
       get() { return map.get(identifier); }
     });
+    return Target;
   }
 }
 
