@@ -1,6 +1,5 @@
 import { binding, named, namedWith, bindBy, register } from "../";
 
-
 describe("test", () => {
   describe("binding and named", () => {
     @named
