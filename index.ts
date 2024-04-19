@@ -16,7 +16,8 @@ export const binding: PropertyDecorator = (Target: any, key) => {
   Object.defineProperty(Target, key, {
     get() {
       return map.get(Reflect.getMetadata("design:type", Target, key));
-    }
+    },
+    configurable: true,
   });
   return Target;
 }
@@ -24,7 +25,8 @@ export const binding: PropertyDecorator = (Target: any, key) => {
 export function bindBy(identifier: any): PropertyDecorator {
   return (Target, key) => {
     Object.defineProperty(Target, key, {
-      get() { return map.get(identifier); }
+      get() { return map.get(identifier); },
+      configurable: true,
     });
     return Target;
   }
